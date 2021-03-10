@@ -39,13 +39,13 @@ def activity():
                 expire = int(token["accessTokenExpirationTimestampMs"] / 1000)
 
         friendsActivity = spoti_friends.get_friends_activity(webToken)
-        page = []
+        activityList = []
 
         for i in friendsActivity:
             time = spoti_friends.pretty_date_from_timestamp(i["timestamp"])
-            page.append(f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})")
+            activityList.append(f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})")
 
-        resp = make_response("<br>".join(page))
+        resp = make_response(render_template("activity.html", activityList=activityList))
 
         if expire:
             resp.set_cookie("token", webToken, expires=expire)
