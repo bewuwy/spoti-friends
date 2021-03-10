@@ -5,7 +5,12 @@ body {
 a {
     color: #3391ff;
 }
-input, button {
+input {
+    border-color: #736b5e;
+    background-color: #181a1b;
+    color: white;
+}
+button {
     border-color: #736b5e;
     background-color: #181a1b;
     color: white;

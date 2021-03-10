@@ -27,7 +27,7 @@
             }
             {% endif %}
             .box {
-              border: 15px solid #18d860;
+              padding: 15px;
               background-color: #18d860;
               border-radius: 30px;
               overflow: auto;
@@ -46,6 +46,9 @@
             }
             body {
               font-family: 'Poppins', sans-serif;
+            }
+            a {
+              color: white;
             }
 
             .form-popup {
@@ -96,16 +99,21 @@
     </head>
     <body>
         <div class="center">
-            <div class="title">Friend activity</div><br>
+            <div class="title">Friend activity</div><br/>
 
-            {% for friend in activityList %}
+            {% for f in activityList %}
             <div class="box">
-                <img src="{{ friend[1] }}" class="rounded" align=left />
-                {{ friend[0] }}
-            </div> <br>
+                <img src="{{ f[7] }}" class="rounded" align=left />
+                {{ f[0] }} -
+                <a href="{{ f[1][1] }}" target="_blank">{{ f[1][0] }}</a>
+                by <a href="{{ f[2][1] }}" target="_blank">{{ f[2][0] }}</a>
+                ({{ f[3] }})
+                (<a href="{{ f[4][1] }}" target="_blank">{{ f[4][0] }} 💿</a>)
+                (<a href="{{ f[5][1] }}" target="_blank">{{ f[5][0] }} {{ f[6] }}</a>)
+            </div> <br/>
             {% endfor %}
 
-            <br><br><br>
+            <p><br/><br/></p>
             <div class="edit">
                 <div class="form-popup" id="editForm">
                     <form onsubmit="setCookie()">

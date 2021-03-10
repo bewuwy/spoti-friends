@@ -49,9 +49,15 @@ def activity():
             else:
                 context_type = "💿"
 
-            al.insert(0, [f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})"
-                          f" ({i['track']['album']['name']} 💿) ({i['track']['context']['name']} {context_type})",
-                          i["user"].get("imageUrl")])
+            trackUrl = "https://open.spotify.com/track/" + i['track']['uri'].split(":")[2]
+            artistUrl = "https://open.spotify.com/artist/" + i['track']['artist']['uri'].split(":")[2]
+            albumUrl = "https://open.spotify.com/album/" + i['track']['album']['uri'].split(":")[2]
+            contextUrl = "https://open.spotify.com/" + i['track']['context']['uri'].split(":")[1] + "/" + \
+                         i['track']['context']['uri'].split(":")[2]
+
+            al.insert(0, [i['user']['name'], [i['track']['name'], trackUrl], [i['track']['artist']['name'], artistUrl],
+                          time, [i['track']['album']['name'], albumUrl], [i['track']['context']['name'], contextUrl],
+                          context_type, i["user"].get("imageUrl")])
 
         resp = make_response(render_template("activity.html", activityList=al))
 
