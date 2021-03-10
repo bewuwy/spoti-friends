@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, request, make_response
-from datetime import datetime
 import spoti_friends
 
 
@@ -37,7 +36,7 @@ def activity():
         page = []
 
         for i in friendsActivity:
-            time = datetime.fromtimestamp(int(i['timestamp'] / 1000))
+            time = spoti_friends.pretty_date_from_timestamp(i["timestamp"])
             page.append(f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})")
 
         resp = make_response("<br>".join(page))
