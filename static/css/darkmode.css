@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
+@font-face {
+  font-family: Poppins;
+  src: url(static/font/Poppins-Regular.ttf);
+}
 body {
     background-color: #181a1b;
     color: white;
