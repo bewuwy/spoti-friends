@@ -7,8 +7,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    if request.cookies.get("sp_dc") is None:
-        return render_template("index.html")
+    e = request.args.get("e")
+    if request.cookies.get("sp_dc") is None or e is not None:
+        errors = {"noSp_dc": "There is no sp_dc token saved",
+                  "wrongSp_dc": "You entered a wrong sp_dc token"}
+        if e is None or e not in errors:
+            return render_template("index.html")
+        else:
+            return render_template("index.html", error=errors[e])
     else:
         return redirect("/activity")
 
@@ -24,7 +30,7 @@ def activity():
 
             # if sp_dc is wrong
             if token is None:
-                resp = make_response(redirect("/"))
+                resp = make_response(redirect("/?e=wrongSp_dc"))
 
                 resp.set_cookie("sp_dc", "", expires=0)
                 return resp
@@ -46,7 +52,7 @@ def activity():
 
         return resp
     else:
-        return redirect("/")
+        return redirect("/?e=noSp_dc")
 
 
 @app.route("/howto")

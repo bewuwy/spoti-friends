@@ -8,10 +8,15 @@
               text-align: center;
               padding: 10px;
             }
+            .error {
+              color: #ff4d4d;
+              font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <div class="center">
+            <p class="error">{{ error }}</p>
             <form onsubmit="setCookie()">
                     <input type="text" id="sp_dc" autocomplete=off autofocus placeholder="input your sp_dc token" required>
                     <input type="submit" value="Save" id="submit">
