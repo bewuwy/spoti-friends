@@ -28,7 +28,53 @@
               height: 50px;
               width: 50px;
             }
+
+            .form-popup {
+              display: none;
+              text-align: center;
+            }
+            .edit {
+              text-align: center;
+            }
         </style>
+        <script>
+            function getCookie(cname) {
+              var name = cname + "=";
+              var decodedCookie = decodeURIComponent(document.cookie);
+              var ca = decodedCookie.split(';');
+              for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+                }
+              }
+              return "";
+            }
+
+            function toggleForm() {
+              if (document.getElementById("editForm").style.display == "block") {
+                document.getElementById("editForm").style.display = "none";
+                document.getElementById("editBtn").innerHTML = "Show/Edit sp_dc";
+              }
+              else {
+                document.getElementById("editForm").style.display = "block";
+                document.getElementById("editBtn").innerHTML = "Close";
+
+                sp = getCookie("sp_dc")
+                document.getElementById("sp_dc").value = sp;
+                document.getElementById("sp_dc").size = sp.length;
+              }
+            }
+
+            function setCookie(){
+             document.cookie= "sp_dc=" + document.getElementById('sp_dc').value + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
+             document.cookie= "token= ; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+             location.reload();
+           }
+        </script>
     </head>
     <body>
         <div class="center">
@@ -37,6 +83,17 @@
             {% for friend in activityList %}
             <div class="box"><img src="{{ friend[1] }}" class="rounded">{{ friend[0] }}</div> <br>
             {% endfor %}
+
+            <br><br><br>
+            <div class="edit">
+                <div class="form-popup" id="editForm">
+                    <form onsubmit="setCookie()">
+                        <input type="text" id="sp_dc" autocomplete=off placeholder="input your sp_dc token" required>
+                        <input type="submit" value="Save" id="submit">
+                    </form>
+                </div>
+                <button type="submit" id="editBtn" class="btn cancel" onclick="toggleForm()">Show/Edit sp_dc</button>
+            </div>
         </div>
     </body>
 </html>

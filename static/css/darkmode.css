@@ -10,7 +10,7 @@ body {
 a {
     color: #3391ff;
 }
-input {
+input, button {
     border-color: #736b5e;
     background-color: #181a1b;
     color: white;

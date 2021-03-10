@@ -17,6 +17,12 @@
               font-weight: bold;
             }
         </style>
+        <script>
+           function setCookie(){
+             document.cookie= "sp_dc=" + document.getElementById('sp_dc').value + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
+             window.location = '/activity'
+           }
+        </script>
     </head>
     <body>
         <div class="center">
@@ -28,11 +34,5 @@
             <br>
             <a href="/howto">how to get the sp_dc token?</a>
         </div>
-        <script>
-           function setCookie(){
-             document.cookie= "sp_dc=" + document.getElementById('sp_dc').value + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
-             window.location = '/activity'
-           }
-        </script>
     </body>
 </html>
