@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, request, make_response
 import spoti_friends
 
-
 app = Flask(__name__)
 
 
@@ -43,8 +42,8 @@ def activity():
 
         for i in friendsActivity:
             time = spoti_friends.pretty_date_from_timestamp(i["timestamp"])
-            al.append([f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})",
-                       i["user"]["imageUrl"]])
+            al.insert(0, [f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})",
+                          i["user"]["imageUrl"]])
 
         resp = make_response(render_template("activity.html", activityList=al))
 
