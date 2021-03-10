@@ -37,6 +37,8 @@ def pretty_date_from_timestamp(ms):
 
     if delta <= timedelta(seconds=300):
         return "now"
+    elif delta <= timedelta(seconds=3600):
+        return f"{int(delta.seconds/60)} minutes ago"
     elif delta < timedelta(days=2):
         if date.day == now.day:
             return f"today at {date.hour}:{minute}"
