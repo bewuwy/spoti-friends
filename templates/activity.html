@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Spotify Friend Activity</title>
         <link rel="stylesheet" href="static/css/darkmode.css">
         <style>
             .center {
@@ -12,13 +13,19 @@
               padding: 10px;
             }
             .box {
-              border: 15px solid #33cc33;
-              background-color: #33cc33;
+              border: 15px solid #18d860;
+              background-color: #18d860;
               border-radius: 30px;
             }
             .title {
               font-weight: bold;
               font-size: 32px;
+            }
+            .rounded {
+              object-fit: cover;
+              border-radius: 50%;
+              height: 50px;
+              width: 50px;
             }
         </style>
     </head>
@@ -27,7 +34,7 @@
             <div class="title">Friend activity</div><br>
 
             {% for friend in activityList %}
-            <div class="box">{{ friend }}</div> <br>
+            <div class="box"><img src="{{ friend[1] }}" class="rounded">{{ friend[0] }}</div> <br>
             {% endfor %}
         </div>
     </body>

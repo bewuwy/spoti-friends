@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime, timedelta
+from os import environ
 
 
 def get_token(sp_dc):
@@ -51,7 +52,7 @@ def pretty_date_from_timestamp(ms):
 
 
 if __name__ == '__main__':
-    spDc = "AQA-Gp4aHFyRGAwrn3pfD8Fj7y7-vWolKZLc03HGj5tImufAjq_8bPGkm9Ez2V_ybXb_geU8jWL9ynm2fwovHXe3Iv8mbYSoK8XwXhabAA"
+    spDc = environ.get("spdc")
 
     token = get_token(spDc)
     print(token, end="\n"*2)
