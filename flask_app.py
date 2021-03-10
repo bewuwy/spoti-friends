@@ -52,8 +52,12 @@ def activity():
             trackUrl = "https://open.spotify.com/track/" + i['track']['uri'].split(":")[2]
             artistUrl = "https://open.spotify.com/artist/" + i['track']['artist']['uri'].split(":")[2]
             albumUrl = "https://open.spotify.com/album/" + i['track']['album']['uri'].split(":")[2]
-            contextUrl = "https://open.spotify.com/" + i['track']['context']['uri'].split(":")[1] + "/" + \
-                         i['track']['context']['uri'].split(":")[2]
+            if len(i['track']['context']['uri'].split(":")) > 3:
+                contextUrl = "https://open.spotify.com/" + i['track']['context']['uri'].split(":")[3] + "/" + \
+                             i['track']['context']['uri'].split(":")[4]
+            else:
+                contextUrl = "https://open.spotify.com/" + i['track']['context']['uri'].split(":")[1] + "/" + \
+                             i['track']['context']['uri'].split(":")[2]
 
             al.insert(0, [i['user']['name'], [i['track']['name'], trackUrl], [i['track']['artist']['name'], artistUrl],
                           time, [i['track']['album']['name'], albumUrl], [i['track']['context']['name'], contextUrl],
