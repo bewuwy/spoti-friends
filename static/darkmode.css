@@ -1,6 +1,6 @@
 @font-face {
   font-family: Poppins;
-  src: url(/static/font/Poppins-Regular.ttf);
+  src: url(Poppins-Regular.ttf);
 }
 body {
     background-color: #181a1b;

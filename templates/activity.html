@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Spotify Friend Activity</title>
-        <link rel="stylesheet" href="static/css/darkmode.css">
+        <link rel="stylesheet" href="static/darkmode.css">
         <style>
             .center {
               margin: 20%;
@@ -65,7 +65,6 @@
 
                 sp = getCookie("sp_dc")
                 document.getElementById("sp_dc").value = sp;
-                document.getElementById("sp_dc").size = sp.length;
               }
             }
 
@@ -88,7 +87,7 @@
             <div class="edit">
                 <div class="form-popup" id="editForm">
                     <form onsubmit="setCookie()">
-                        <input type="text" id="sp_dc" autocomplete=off placeholder="input your sp_dc token" required>
+                        <input type="text" id="sp_dc" autocomplete=off placeholder="input your sp_dc token" required size="100%">
                         <input type="submit" value="Save" id="submit">
                     </form>
                 </div>
