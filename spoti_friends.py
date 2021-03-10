@@ -48,7 +48,7 @@ def pretty_date_from_timestamp(ms):
             if int(delta.seconds/60/60) == 1:
                 return "1 hour ago"
             else:
-                return f"{int(delta.seconds/60/60)} hours ago"
+                return f"{round(delta.seconds/60/60)} hours ago"
         else:
             return f"yesterday at {date.hour}:{minute}"
     elif delta <= timedelta(days=7):
