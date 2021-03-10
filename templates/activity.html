@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="static/darkmode.css">
         <style>
             .center {
               margin: 20%;
+              margin-top: 5%;
               width: 60%;
               text-align: left;
               padding: 10px;
+            }
+            .box {
+              border: 15px solid #33cc33;
+              background-color: #33cc33;
+              border-radius: 30px;
             }
         </style>
     </head>
     <body>
         <div class="center">
             {% for friend in activityList %}
-            {{ friend }} <br>
+            <div class="box">{{ friend }}</div> <br>
             {% endfor %}
         </div>
     </body>
