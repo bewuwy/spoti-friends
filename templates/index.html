@@ -1,12 +1,29 @@
-<form onsubmit="setCookie()">
-    <input type="text" id="sp_dc" autocomplete=off autofocus placeholder="input your sp_dc token" required>
-    <input type="submit" value="Save" id="submit">
-</form>
-<br>
-<a href="/howto">how to get the sp_dc token?</a>
-<script>
-   function setCookie(){
-     document.cookie= "sp_dc=" + document.getElementById('sp_dc').value + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
-     window.location = '/activity'
-   }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .center {
+              margin: auto;
+              width: 50%;
+              text-align: center;
+              padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <form onsubmit="setCookie()">
+                    <input type="text" id="sp_dc" autocomplete=off autofocus placeholder="input your sp_dc token" required>
+                    <input type="submit" value="Save" id="submit">
+            </form>
+            <br>
+            <a href="/howto">how to get the sp_dc token?</a>
+        </div>
+        <script>
+           function setCookie(){
+             document.cookie= "sp_dc=" + document.getElementById('sp_dc').value + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
+             window.location = '/activity'
+           }
+        </script>
+    </body>
+</html>
