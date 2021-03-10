@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="static/darkmode.css">
         <style>
             .center {
               margin: 20%;
               margin-top: 5%;
+              margin-bottom: 10%;
               width: 60%;
               text-align: left;
               padding: 10px;
@@ -15,10 +18,16 @@
               background-color: #33cc33;
               border-radius: 30px;
             }
+            .title {
+              font-weight: bold;
+              font-size: 32px;
+            }
         </style>
     </head>
     <body>
         <div class="center">
+            <div class="title">Friend activity</div><br>
+
             {% for friend in activityList %}
             <div class="box">{{ friend }}</div> <br>
             {% endfor %}
