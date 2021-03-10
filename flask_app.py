@@ -44,8 +44,13 @@ def activity():
 
         for i in friendsActivity:
             time = spoti_friends.pretty_date_from_timestamp(i["timestamp"])
-            al.insert(0, [f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})",
-                          # f" (album: {i['track']['album']['name']}) (playlist: {i['track']['context']['name']})",
+            if i["track"]["context"]["uri"].find("playlist") > -1:
+                context_type = "🎵"
+            else:
+                context_type = "💿"
+
+            al.insert(0, [f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})"
+                          f" ({i['track']['album']['name']} 💿) ({i['track']['context']['name']} {context_type})",
                           i["user"].get("imageUrl")])
 
         resp = make_response(render_template("activity.html", activityList=al))
