@@ -8,6 +8,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static', filename='darkmode.css') }}">
         <style>
+            {% if request.MOBILE %}
+            .center {
+              margin: 5%;
+              margin-bottom: 10%;
+              width: 90%;
+              text-align: left;
+              padding: 5px;
+            }
+            {% else %}
             .center {
               margin: 10%;
               margin-top: 5%;
@@ -16,6 +25,7 @@
               overflow: auto;
               padding: 5px;
             }
+            {% endif %}
             img {
               object-fit: scale-down;
             }

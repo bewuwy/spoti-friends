@@ -8,13 +8,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static', filename='darkmode.css') }}">
         <style>
+            {% if request.MOBILE %}
             .center {
-              margin: 25%;
-              margin-top: 10%;
-              width: 50%;
+              margin: 5%;
+              margin-bottom: 10%;
+              width: 90%;
               text-align: center;
               padding: 10px;
             }
+            {% else %}
+            .center {
+              margin: 25%;
+              margin-top: 10%;
+              margin-bottom: 10%;
+              width: 40%;
+              text-align: center;
+              padding: 10px;
+            }
+            {% endif %}
             .error {
               color: #ff4d4d;
               font-weight: bold;
