@@ -30,6 +30,7 @@
               border: 15px solid #18d860;
               background-color: #18d860;
               border-radius: 30px;
+              overflow: auto;
             }
             .title {
               font-weight: bold;
@@ -38,8 +39,10 @@
             .rounded {
               object-fit: cover;
               border-radius: 50%;
+              display: inline;
               height: 50px;
               width: 50px;
+              margin-right: 10px;
             }
             body {
               font-family: 'Poppins', sans-serif;
@@ -96,7 +99,10 @@
             <div class="title">Friend activity</div><br>
 
             {% for friend in activityList %}
-            <div class="box"><img src="{{ friend[1] }}" class="rounded">{{ friend[0] }}</div> <br>
+            <div class="box">
+                <img src="{{ friend[1] }}" class="rounded" align=left />
+                {{ friend[0] }}
+            </div> <br>
             {% endfor %}
 
             <br><br><br>

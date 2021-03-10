@@ -63,4 +63,5 @@ if __name__ == '__main__':
 
     for i in friend_activity:
         time = datetime.fromtimestamp(int(i['timestamp']/1000))
-        print(f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']}  ({time})")
+        print(f"{i['user']['name']} - {i['track']['name']} by {i['track']['artist']['name']} ({time})"
+              f" ({i['track']['album']['name']}) ({i['track']['context']['name']})")
