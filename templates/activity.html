@@ -5,14 +5,24 @@
         <title>Spotify Friend Activity</title>
         <link rel="stylesheet" href="static/darkmode.css">
         <style>
+            {% if request.MOBILE %}
             .center {
-              margin: 20%;
-              margin-top: 5%;
+              margin: 5%;
               margin-bottom: 10%;
-              width: 60%;
+              width: 90%;
               text-align: left;
               padding: 10px;
             }
+            {% else %}
+            .center {
+              margin: 30%;
+              margin-top: 5%;
+              margin-bottom: 10%;
+              width: 40%;
+              text-align: left;
+              padding: 10px;
+            }
+            {% endif %}
             .box {
               border: 15px solid #18d860;
               background-color: #18d860;

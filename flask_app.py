@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, request, make_response
+from flask_mobility import Mobility
 import spoti_friends
 
 app = Flask(__name__)
+Mobility(app)
 
 
 @app.route("/")
