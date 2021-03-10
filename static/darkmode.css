@@ -1,14 +1,3 @@
-@font-face {
-    font-family: Poppins;
-    src: url('Poppins-Light.ttf');
-    font-weight: normal;
-}
-@font-face {
-    font-family: Poppins;
-    src: url('Poppins-SemiBold.ttf');
-    font-weight: bold;
-}
-
 body {
     background-color: #181a1b;
     color: white;
