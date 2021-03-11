@@ -11,9 +11,11 @@
         <style>
             {% if request.MOBILE %}
             .center {
-              margin: 5%;
+              margin: 2.5%;
+              margin-left: 2%;
+              margin-right: 2%;
               margin-bottom: 10%;
-              width: 90%;
+              width: auto;
               text-align: left;
               padding: 10px;
             }
@@ -25,6 +27,7 @@
               width: 40%;
               text-align: left;
               padding: 10px;
+              display: block;
             }
             {% endif %}
             .box {
@@ -33,9 +36,15 @@
               border-radius: 30px;
               overflow: auto;
             }
+            .box:hover {
+              background-color: #17cf5d;
+            }
             .title {
               font-weight: bold;
               font-size: 32px;
+              max-height: 5%;
+              height: auto;
+              width: auto;
             }
             .rounded {
               object-fit: cover;
@@ -96,16 +105,47 @@
               }
             }
 
-            function setCookie(){
+            function setCookie() {
              document.cookie= "sp_dc=" + document.getElementById('sp_dc').value + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
              document.cookie= "token= ; expires=Thu, 01 Jan 1970 00:00:01 GMT";
              location.reload();
            }
+
+           function toggleMenu() {
+             if (document.getElementById("menuText").style.display == "block") {
+                document.getElementById("menuText").style.display = "none";
+             }
+             else {
+                document.getElementById("menuText").style.display = "block";
+             }
+           }
         </script>
     </head>
     <body>
+        {% if not request.MOBILE %}
+        <div class="menu">
+            <img src="{{ url_for('static', filename='favicon/logo_long.png') }}" class="logo" id="logo" onclick="toggleMenu()">
+            <div class="menuText" id="menuText">
+                <a href="/">• main page</a><br/>
+                <a href="/about">• about</a><br/>
+                <a href="/logout">• logout</a><br/>
+            </div>
+        </div>
+        {% endif %}
         <div class="center">
-            <div class="title">Friend Activity</div><br/>
+            <div class="title">
+                {% if request.MOBILE %}
+                <img src="{{ url_for('static', filename='favicon/favicon.png') }}" class="logoM" id="logo" onclick="toggleMenu()">
+                <span style="vertical-align: middle;">Friends Activity</span>
+                <div class="menuTextM" id="menuText">
+                    <a href="/">• main page</a><br/>
+                    <a href="/about">• about</a><br/>
+                    <a href="/logout">• logout</a><br/>
+                </div>
+                {% else %}
+                <span style="vertical-align: middle;">Friends Activity</span>
+                {% endif %}
+            </div><br/>
 
             {% for f in activityList %}
             <div class="box">
@@ -116,10 +156,10 @@
                 ({{ f[3] }})
                 (<a href="{{ f[4][1] }}" target="_blank">{{ f[4][0] }} 💿</a>)
                 (<a href="{{ f[5][1] }}" target="_blank">{{ f[5][0] }} {{ f[6] }}</a>)
-            </div> <br/>
+            </div><br/>
             {% endfor %}
 
-            <p><br/><br/></p>
+            <p><br/></p>
             <div class="edit">
                 <div class="form-popup" id="editForm">
                     <form onsubmit="setCookie()">
@@ -129,6 +169,7 @@
                 </div>
                 <button type="submit" id="editBtn" class="closeBtn" onclick="toggleForm()">Show/Edit sp_dc</button>
             </div>
+            <p><br/></p>
         </div>
     </body>
 </html>

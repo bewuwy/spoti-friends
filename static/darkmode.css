@@ -32,3 +32,36 @@ button:hover {
     background-color: #12a149;
     color: white;
 }
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1.5%;
+    width: 18%;
+}
+.menuText {
+    margin-left: 18%;
+    font-size: 20px;
+    display: none;
+}
+.menuTextM {
+    margin-left: 8%;
+    font-size: 18px;
+    display: none;
+}
+.logo {
+    max-width: 70%;
+    width: auto;
+    height: auto;
+    opacity: 1;
+}
+.logoM {
+    max-width: 10%;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    vertical-align: middle;
+}
+.logo:hover {
+    opacity: 0.8;
+}
