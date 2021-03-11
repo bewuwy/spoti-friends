@@ -6,12 +6,29 @@ a {
     color: #3391ff;
 }
 input {
-    border-color: #736b5e;
+    border: 2px solid #736b5e;
     background-color: #181a1b;
     color: white;
 }
+input[type=text] {
+    border-radius: 4px;
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
 button {
-    border-color: #736b5e;
-    background-color: #181a1b;
+    border: none;
+    background-color: #18d860;
+    border-radius: 12px;
+    padding: 1% 2%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+button:hover {
+    background-color: #12a149;
     color: white;
 }
